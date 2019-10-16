@@ -24,7 +24,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableBatchProcessing
 public class BatchConfiguration {
-
     @Autowired
     public JobBuilderFactory jobBuilderFactory;
 
@@ -58,7 +57,7 @@ public class BatchConfiguration {
                 .build();
     }
     @Bean
-    public Job importUserJob(JobCompletionNotificationListener listener, Step step1) {
+    public Job importUserJob(com.example.batchprocessing.JobCompletionNotificationListener listener, Step step1) {
         return jobBuilderFactory.get("importUserJob")
                 .incrementer(new RunIdIncrementer())
                 .listener(listener)
