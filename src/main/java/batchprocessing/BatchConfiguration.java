@@ -1,7 +1,5 @@
-package com.example.batchprocessing;
+package batchprocessing;
 
-import com.example.batchprocessing.Person;
-import com.example.batchprocessing.PersonItemProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -57,7 +55,7 @@ public class BatchConfiguration {
                 .build();
     }
     @Bean
-    public Job importUserJob(com.example.batchprocessing.JobCompletionNotificationListener listener, Step step1) {
+    public Job importUserJob(batchprocessing.JobCompletionNotificationListener listener, Step step1) {
         return jobBuilderFactory.get("importUserJob")
                 .incrementer(new RunIdIncrementer())
                 .listener(listener)

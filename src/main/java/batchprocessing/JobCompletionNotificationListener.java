@@ -1,4 +1,4 @@
-package com.example.batchprocessing;
+package batchprocessing;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +27,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
             log.info("!!! JOB FINISHED! Time to verify the results");
 
             jdbcTemplate.query("SELECT first_name, last_name FROM people",
-                    (rs, row) -> new com.example.batchprocessing.Person(
+                    (rs, row) -> new batchprocessing.Person(
                             rs.getString(1),
                             rs.getString(2))
             ).forEach(person -> log.info("Found <" + person + "> in the database."));
